@@ -8,6 +8,8 @@
 
 import UIKit
 import VegaScrollFlowLayout
+import KRProgressHUD
+
 class HomeVC: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     var models:[NewsModel] = []
     let cellId = "HomeCell"
@@ -44,6 +46,7 @@ class HomeVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func getJsonFromUrl(){
+        KRProgressHUD.show(withMessage: "Loading...")
         //creating a NSURL
         let url = URL(string: Constants.homeNewsApi)
         
@@ -53,7 +56,11 @@ class HomeVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSArray {
                 self.models = NewsModel.modelsFromDictionaryArray(array: jsonObj!)
                 DispatchQueue.main.async(execute: {self.collectionView.reloadData()})
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    KRProgressHUD.dismiss()
+                }
             }
+
         }).resume()
     }
     

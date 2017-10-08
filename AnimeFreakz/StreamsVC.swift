@@ -8,13 +8,15 @@
 
 import UIKit
 import VegaScrollFlowLayout
+import KRProgressHUD
 
-class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewDelegate {
+class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     var models:[animeHomeModel] = []
     var filtered:[animeHomeModel] = []
     let cellId = "AnimeCell"
+    var searchActive : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +38,45 @@ class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewD
         // Dispose of any resources that can be recreated.
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+        DispatchQueue.main.async(execute: {
+            self.searchBar.endEditing(true)
+            self.collectionView.reloadData()})
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = true;
+        self.searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if((searchText.count) > 0 ){
+            self.filtered = models.filter {
+                guard let name = $0.title else {
+                    return false
+                }
+                return name.contains(searchText)
+            }
+            if(self.filtered.count == 0){
+                self.searchActive = false;
+            } else {
+                self.searchActive = true;
+            }
+            DispatchQueue.main.async(execute: {self.collectionView.reloadData()})
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if((self.searchBar.text?.count) != nil){
+        if(self.searchActive){
             return filtered.count
         }else {
             return models.count
@@ -47,8 +86,8 @@ class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AnimeCell
-        if((self.searchBar.text?.count) != nil){
-        
+        if(self.searchActive){
+            cell.configureWith(filtered[indexPath.row])
         }else {
             cell.configureWith(models[indexPath.row])}
         return cell
@@ -72,6 +111,7 @@ class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewD
     
     
     func getJsonFromUrl(){
+        KRProgressHUD.show(withMessage: "Loading...")
         //creating a NSURL
         let url = URL(string: Constants.homeApi)
         
@@ -81,7 +121,11 @@ class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewD
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSArray {
                 self.models = animeHomeModel.modelsFromDictionaryArray(array: jsonObj!)
                 DispatchQueue.main.async(execute: {self.collectionView.reloadData()})
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    KRProgressHUD.dismiss()
+                }
             }
+            
         }).resume()
     }
     
