@@ -12,7 +12,7 @@ import Foundation
  
 /* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
-public class episodeModel {
+public class seriesModel {
 	public var episodes : Array<Episodes>?
 	public var desc : Array<Desc>?
 	public var status : Array<Status>?
@@ -22,18 +22,18 @@ public class episodeModel {
     Returns an array of models based on given dictionary.
     
     Sample usage:
-    let episodeModel_list = episodeModel.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
+    let seriesModel_list = seriesModel.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
 
     - parameter array:  NSArray from JSON dictionary.
 
-    - returns: Array of episodeModel Instances.
+    - returns: Array of seriesModel Instances.
 */
-    public class func modelsFromDictionaryArray(array:NSArray) -> [episodeModel]
+    public class func modelsFromDictionaryArray(array:NSArray) -> [seriesModel]
     {
-        var models:[episodeModel] = []
+        var models:[seriesModel] = []
         for item in array
         {
-            models.append(episodeModel(dictionary: item as! NSDictionary)!)
+            models.append(seriesModel(dictionary: item as! NSDictionary)!)
         }
         return models
     }
@@ -42,11 +42,11 @@ public class episodeModel {
     Constructs the object based on the given dictionary.
     
     Sample usage:
-    let episodeModel = episodeModel(someDictionaryFromJSON)
+    let seriesModel = seriesModel(someDictionaryFromJSON)
 
     - parameter dictionary:  NSDictionary from JSON.
 
-    - returns: episodeModel Instance.
+    - returns: seriesModel Instance.
 */
 	required public init?(dictionary: NSDictionary) {
 

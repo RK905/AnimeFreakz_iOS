@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0E42E91F8B0FE90040CEF1 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E42E71F8B0FE90040CEF1 /* EpisodeCell.swift */; };
+		0A0E42EA1F8B0FE90040CEF1 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E42E81F8B0FE90040CEF1 /* EpisodeCell.xib */; };
+		0A0E42EC1F8B2B950040CEF1 /* StreamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E42EB1F8B2B950040CEF1 /* StreamModel.swift */; };
 		0A2982861F883E0F004C6DE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2982851F883E0F004C6DE7 /* AppDelegate.swift */; };
 		0A29828B1F883E0F004C6DE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2982891F883E0F004C6DE7 /* Main.storyboard */; };
 		0A29828D1F883E0F004C6DE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A29828C1F883E0F004C6DE7 /* Assets.xcassets */; };
@@ -29,10 +32,14 @@
 		0A8223821F88AB8600A30014 /* Released.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82237D1F88AB8600A30014 /* Released.swift */; };
 		0A8223831F88AB8600A30014 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A82237E1F88AB8600A30014 /* Status.swift */; };
 		0A8223851F88AD9200A30014 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8223841F88AD9200A30014 /* VideoVC.swift */; };
+		0AC75F671F8AFF450035DECF /* animefreakz_media.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AC75F661F8AFF450035DECF /* animefreakz_media.json */; };
 		D255D904EFE75FF78F1AB34C /* Pods_AnimeFreakz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CEF93159633E535E0A75412 /* Pods_AnimeFreakz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0E42E71F8B0FE90040CEF1 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		0A0E42E81F8B0FE90040CEF1 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		0A0E42EB1F8B2B950040CEF1 /* StreamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamModel.swift; sourceTree = "<group>"; };
 		0A2982821F883E0F004C6DE7 /* AnimeFreakz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeFreakz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2982851F883E0F004C6DE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A29828A1F883E0F004C6DE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +65,7 @@
 		0A82237D1F88AB8600A30014 /* Released.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Released.swift; sourceTree = "<group>"; };
 		0A82237E1F88AB8600A30014 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		0A8223841F88AD9200A30014 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
+		0AC75F661F8AFF450035DECF /* animefreakz_media.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animefreakz_media.json; sourceTree = "<group>"; };
 		63A1C67549F121D5140265B6 /* Pods-AnimeFreakz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFreakz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnimeFreakz/Pods-AnimeFreakz.debug.xcconfig"; sourceTree = "<group>"; };
 		7CEF93159633E535E0A75412 /* Pods_AnimeFreakz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeFreakz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ACBE9905EF56299568E1392 /* Pods-AnimeFreakz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFreakz.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnimeFreakz/Pods-AnimeFreakz.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +104,7 @@
 		0A2982841F883E0F004C6DE7 /* AnimeFreakz */ = {
 			isa = PBXGroup;
 			children = (
+				0AC75F661F8AFF450035DECF /* animefreakz_media.json */,
 				0A82237C1F88AB8600A30014 /* Desc.swift */,
 				0A82237A1F88AB8600A30014 /* episodeModel.swift */,
 				0A82237B1F88AB8600A30014 /* Episodes.swift */,
@@ -120,6 +129,9 @@
 				0A3CE74C1F89AF930081B8AD /* HomeCell.swift */,
 				0A3CE74D1F89AF930081B8AD /* HomeCell.xib */,
 				0A3CE7501F89B18C0081B8AD /* NewsModel.swift */,
+				0A0E42E71F8B0FE90040CEF1 /* EpisodeCell.swift */,
+				0A0E42E81F8B0FE90040CEF1 /* EpisodeCell.xib */,
+				0A0E42EB1F8B2B950040CEF1 /* StreamModel.swift */,
 			);
 			path = AnimeFreakz;
 			sourceTree = "<group>";
@@ -215,9 +227,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2982901F883E0F004C6DE7 /* LaunchScreen.storyboard in Resources */,
+				0A0E42EA1F8B0FE90040CEF1 /* EpisodeCell.xib in Resources */,
 				0A8223731F88980D00A30014 /* GoogleService-Info.plist in Resources */,
 				0A29828D1F883E0F004C6DE7 /* Assets.xcassets in Resources */,
 				0A8223791F88A0BB00A30014 /* AnimeCell.xib in Resources */,
+				0AC75F671F8AFF450035DECF /* animefreakz_media.json in Resources */,
 				0A3CE74F1F89AF930081B8AD /* HomeCell.xib in Resources */,
 				0A29828B1F883E0F004C6DE7 /* Main.storyboard in Resources */,
 			);
@@ -294,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0E42E91F8B0FE90040CEF1 /* EpisodeCell.swift in Sources */,
 				0A8223851F88AD9200A30014 /* VideoVC.swift in Sources */,
 				0A8223821F88AB8600A30014 /* Released.swift in Sources */,
 				0A8223751F889BE000A30014 /* StreamsVC.swift in Sources */,
@@ -310,6 +325,7 @@
 				0A8223801F88AB8600A30014 /* Episodes.swift in Sources */,
 				0A82236F1F8889D600A30014 /* Constants.swift in Sources */,
 				0A82237F1F88AB8600A30014 /* episodeModel.swift in Sources */,
+				0A0E42EC1F8B2B950040CEF1 /* StreamModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

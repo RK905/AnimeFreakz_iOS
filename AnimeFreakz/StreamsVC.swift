@@ -105,28 +105,33 @@ class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewD
         if segue.identifier == "seriesInfo"{
             let selectedIndexPath = sender as? NSIndexPath
             let seriesVC = segue.destination as! SeriesInfoVC
-            seriesVC.animeModel = models[(selectedIndexPath?.row)!]
+            if(self.searchActive){
+                seriesVC.animeModel = filtered[(selectedIndexPath?.row)!]
+            }else {
+                seriesVC.animeModel = models[(selectedIndexPath?.row)!]}
         }
     }
     
     
     func getJsonFromUrl(){
         KRProgressHUD.show(withMessage: "Loading...")
-        //creating a NSURL
-        let url = URL(string: Constants.homeApi)
-        
-        //fetching the data from the url
-        URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) -> Void in
+        if let path = Bundle.main.url(forResource: "animefreakz_media", withExtension: "json") {
             
-            if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSArray {
-                self.models = animeHomeModel.modelsFromDictionaryArray(array: jsonObj!)
-                DispatchQueue.main.async(execute: {self.collectionView.reloadData()})
-                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                    KRProgressHUD.dismiss()
+            do {
+              let jsonData = try Data(contentsOf: path, options: .mappedIfSafe)
+              if let jsonObj = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments) as? NSArray {
+                                self.models = animeHomeModel.modelsFromDictionaryArray(array: jsonObj!)
+                                DispatchQueue.main.async(execute: {self.collectionView.reloadData()})
+                                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                                    KRProgressHUD.dismiss()
+                                }
+                                
                 }
+            } catch let error as NSError {
+                print("Error: \(error)")
             }
             
-        }).resume()
+        }
     }
     
     
