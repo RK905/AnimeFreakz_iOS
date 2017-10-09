@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import OneSignal
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "f9600e13-67ea-45d3-b517-843c0d15f36c",
+                                        handleNotificationAction: nil,
+                                        settings: [kOSSettingsKeyAutoPrompt: true])
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         return true
     }
 

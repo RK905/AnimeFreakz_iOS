@@ -11,4 +11,5 @@ target 'AnimeFreakz' do
   pod 'VegaScrollFlowLayout'
   pod 'Kingfisher'
   pod 'KRProgressHUD'
+  pod 'OneSignal'
 end
