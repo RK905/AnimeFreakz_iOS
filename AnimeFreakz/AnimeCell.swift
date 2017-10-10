@@ -16,6 +16,11 @@ class AnimeCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        layer.cornerRadius = 14
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.masksToBounds = false
     }
     
     func configureWith(_ model: animeHomeModel) {

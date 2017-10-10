@@ -12,9 +12,9 @@ class NewsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let navBackgroundImage:UIImage! = UIImage(named: "banner")
-        self.navigationController?.navigationBar.setBackgroundImage(navBackgroundImage,
-                                                                    for: .default)
+      
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "banner")!.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch), for: .default)
+       
 
         // Do any additional setup after loading the view.
     }

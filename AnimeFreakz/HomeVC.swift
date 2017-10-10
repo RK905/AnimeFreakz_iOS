@@ -22,14 +22,18 @@ class HomeVC: UIViewController,UICollectionViewDataSource, UICollectionViewDeleg
         self.collectionView.collectionViewLayout = layout
         layout.minimumLineSpacing = 20
         layout.itemSize = CGSize(width: self.collectionView.frame.width, height: 100)
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        let navBackgroundImage:UIImage! = UIImage(named: "banner")
-        self.navigationController?.navigationBar.setBackgroundImage(navBackgroundImage,
-                                                                    for: .default)
-        self.getJsonFromUrl()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+                    UINavigationBar.appearance().setBackgroundImage(UIImage(named: "banner")!.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch), for: .default)
+        
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.getJsonFromUrl()
+      
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

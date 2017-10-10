@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="285" height="80"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-Xy-xEQ">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-Xy-xEQ">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="h4e-Xy-xEQ" secondAttribute="height" multiplier="1:1" id="gm1-42-bwd"/>
@@ -45,6 +45,7 @@
                     </stackView>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="h4e-Xy-xEQ" secondAttribute="bottom" id="6zL-gW-uRe"/>
                 <constraint firstItem="ecQ-5Q-a1F" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CYD-lA-lHW"/>

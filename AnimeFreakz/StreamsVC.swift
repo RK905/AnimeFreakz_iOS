@@ -27,9 +27,7 @@ class StreamsVC: UIViewController ,UICollectionViewDataSource, UICollectionViewD
         layout.minimumLineSpacing = 20
         layout.itemSize = CGSize(width: self.collectionView.frame.width, height: 100)
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        let navBackgroundImage:UIImage! = UIImage(named: "banner")
-        self.navigationController?.navigationBar.setBackgroundImage(navBackgroundImage,
-                                                                    for: .default)
+       UINavigationBar.appearance().setBackgroundImage(UIImage(named: "banner")!.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch), for: .default)
         getJsonFromUrl();
     }
 
